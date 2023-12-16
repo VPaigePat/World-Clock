@@ -19,10 +19,12 @@ tokyoDateElement.innerHTML = tokyoTimeZone.format("MMMM Do YYYY")
 
 }
 
-setInterval(updateTime, 1000);
 
 function updateCity(event){
     let cityTimeZone = event.target.value;
+        if(cityTimeZone === "current"){
+            cityTimeZone = moment.tz.guess();
+        }
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityTime = moment.tz(cityTimeZone);
     let citiesElement = document.querySelector("#cities");
@@ -42,6 +44,8 @@ function updateCity(event){
 
 }
 
+
+setInterval(updateTime, 1000);
 
 let citiesSelectElement = document.querySelector("#city");
 citiesSelectElement.addEventListener("change", updateCity);
