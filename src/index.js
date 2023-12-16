@@ -5,7 +5,7 @@ let londonTimeElement = londonElement.querySelector(".time");
 let londonDateElement = londonElement.querySelector(".date");
 londonTimeZone = moment().tz("Europe/London");
 
-londonTimeElement.innerHTML = londonTimeZone.format("HH:mm:ss")
+londonTimeElement.innerHTML = londonTimeZone.format("h:mm:ss[<small>]A[</small>]")
 londonDateElement.innerHTML = londonTimeZone.format("MMMM Do YYYY")
 
 
@@ -14,7 +14,7 @@ let tokyoTimeElement = tokyoElement.querySelector(".time");
 let tokyoDateElement = tokyoElement.querySelector(".date");
 tokyoTimeZone = moment().tz("Asia/Tokyo");
 
-tokyoTimeElement.innerHTML = tokyoTimeZone.format("HH:mm:ss")
+tokyoTimeElement.innerHTML = tokyoTimeZone.format("h:mm:ss[<small>]A[</small>]")
 tokyoDateElement.innerHTML = tokyoTimeZone.format("MMMM Do YYYY")
 
 }
@@ -32,7 +32,9 @@ function updateCity(event){
           <h2>${cityName}</h2>
           <div class="date">${cityTime.format("MMMM do YYYY")}</div>
         </div>
-        <div class="time"> ${cityTime.format("HH:mm:ss")}</div>
+        <div class="time"> ${cityTime.format("h:mm:ss")}<small>${cityTime.format(
+    "A"
+  )}</small> </div>
       </div>
       
       `
